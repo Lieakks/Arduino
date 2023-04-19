@@ -1,0 +1,6 @@
+{
+    "port": "COM7",
+    "configuration": "cpu=atmega2560",
+    "board": "arduino:avr:mega",
+    "sketch": "Arduino\\Motor_Control2\\Motor_Control2.ino"
+}

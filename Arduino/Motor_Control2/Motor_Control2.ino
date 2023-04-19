@@ -7,9 +7,9 @@ const int ppr = 7;          // 每转脉冲数
 const int gear_ratio = 30;  // 减速比
 const int max_speed = 380;  // 最大转速（RPM）
 
-volatile int count = 0; // 脉冲计数器
-int rpm = 0;            // 电机转速
-int speed = 0;          // 目标转速
+volatile long count = 0; // 脉冲计数器
+float rpm = 0;           // 电机转速
+float speed = 0;         // 目标转速
 
 void setup()
 {
@@ -39,12 +39,14 @@ void loop()
         digitalWrite(motorPin_A, HIGH); // 将正转引脚设为高电平
         digitalWrite(motorPin_B, LOW);  // 将反转引脚设为低电平
         analogWrite(motorPin_pwm, 255); // 设置PWM信号为最大值（255）
+        delay(100);                     // 延时100ms
     }
     else if (rpm > speed)
     {                                   // 如果当前转速大于目标转速
         digitalWrite(motorPin_A, LOW);  // 将正转引脚设为低电平
         digitalWrite(motorPin_B, HIGH); // 将反转引脚设为高电平
         analogWrite(motorPin_pwm, 255); // 设置PWM信号为最大值（255）
+        delay(100);                     // 延时100ms
     }
     else
     {                                  // 如果当前转速等于目标转速
